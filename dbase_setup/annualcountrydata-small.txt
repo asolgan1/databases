@@ -1,0 +1,25 @@
+Democratic Republic of the Congo,   2018,               84068.092,           37.083
+Democratic Republic of the Congo,   2020,               89561.404,           39.506
+Equatorial Guinea,                  2018,               1308.966,            46.66
+Russia,                             2018,               145734.034,          8.899
+Russia,                             2019,               145872.26,           8.907
+Russia,                             2020,               145934.46,           8.911
+Saudi Arabia,                       2019,               34268.529,           15.941
+Bosnia and Herzegovina,             2018,               3323.929,            65.175
+Bosnia and Herzegovina,             2019,               3300.998,            64.725
+Bosnia and Herzegovina,             2020,               3280.815,            64.33
+Colombia,                           2018,               49661.056,           44.76
+Egypt,                              2019,               100388.076,          100.847
+Egypt,                              2020,               102334.403,          102.802
+Morocco,                            2020,               36910.558,           82.703
+Nicaragua,                          2018,               6465.502,            53.727
+Nicaragua,                          2019,               6545.503,            54.392
+Nicaragua,                          2020,               6624.554,            55.049
+Syria,                              2018,               16945.062,           92.278
+Syria,                              2019,               17070.132,           92.959
+Syria,                              2020,               17500.657,           95.304
+Japan,                              2018,               127202.19,           348.925
+Japan,                              2019,               126860.299,          347.987
+India,                              2020,               1380004.385,         464.149
+Israel,                             2018,               8381.507,            387.315
+Israel,                             2019,               8519.373,            393.686

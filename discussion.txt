@@ -1,0 +1,22 @@
+MEMBERS:
+
+Jamie Huang, jhuan131
+Alexey Solganik, asolgan1
+Zach Zhou, zzhou43
+
+MODIFICATIONS:
+There were some issues in the database that we had to fix. First of all, some of the columns were misaligned, so setup.sql had to be updated to fix that.
+Also, there were issues with PHP's prepared statements' bind function with the data type YEAR. So we changed the column type to INT instead and it works fine now
+
+PROCESS: 
+Our process was rather involved and complicated, see process.txt under dbase_setup for full details (it has not changed since phase C)
+
+SUCCESSES:
+Get all countries' basic information and Get All Countries' Annual Information function was complicated to do in the SQL, since they involve dynamically sorting by a column. 
+Moreover, we feel that the UI/UX feels clean and easy to use. Bootstrap really helped make the project look and feel better.
+
+KNOWN ISSUES:
+No known issues
+
+EXTENSIONS:
+We would've liked to implement a few more features involving CanvasJS, or use a geographic map to showcase cases/deaths. 

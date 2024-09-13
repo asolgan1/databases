@@ -1,0 +1,361 @@
+<!-- 
+    Zachary Zhou: zzhou43
+    Jamie Huang: jhuan131
+    Alexey Solganik: asolgan1
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Set up scripts for Bootstrap CDN  -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+    <!-- Begin code for functionalities -->
+    <ul class="nav nav-tabs">
+        <a class="nav-link active" href="#">Query Data</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="modifydata.html">Modify Data</a>
+        </li>
+    </ul>
+    <div class="jumbotron">
+        <h2 class="display-4">Database Project: Spring 2021</h2>
+        <p class="lead">
+            Zachary Zhou (zzhou43)
+            Jamie Huang (jhuan131)
+            Alexey Asolgan (asolgan1)</p>
+        <hr class="my-4">
+
+
+        <form action="getcountrydata.php" method="post">
+            <div class="row">
+                <label for="func1Input">Search for a country's basic information</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="country" class="form-control" id="func1Input"
+                        placeholder="Enter a country name" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <form action="getallcountriessortedby.php" method="post">
+            <div class="row">
+                <label for="func2Input">Get all countries' information</label>
+            </div>
+            <div class="row">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="func2Input">Column to sort by</label>
+                    </div>
+                    <select class="custom-select" id="func2Input" name="column">
+                        <option selected value="name">Name</option>
+                        <option value="migrantStock">Migrant Stock</option>
+                        <option value="stimulus">Stimulus Size</option>
+                        <option value="inOECD">In OECD</option>
+                        <option value="publicHealthcare">Has public healthcare</option>
+                        <option value="dailyVacc">Daily Vaccinations</option>
+                        <option value="totalVacc">Total Vaccinations</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="dir" id="func2Radio1" value="ASC" checked>
+                        <label class="form-check-label" for="func2Radio1">
+                            Sort Ascending
+                        </label>
+                    </div>
+                    <div class="form-check">
+
+                        <input class="form-check-input" type="radio" name="dir" value="DESC" id="func2Radio2">
+                        <label class="form-check-label" for="func2Radio2">
+                            Sort Descending
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+
+        <form action="getannualdata.php" method="post">
+            <div class="row">
+                <label for="func3Input">Search for a country's annual information</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="country" class="form-control" id="func3Input"
+                        placeholder="Enter a country name" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <form action="getallannualdatasortedby.php" method="post">
+            <div class="row">
+                <label for="func4Input">Get All Countries' Annual information</label>
+            </div>
+            <div class="row">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="func4Input">Column to sort by</label>
+                    </div>
+                    <select class="custom-select" id="func4Input" name="column">
+                        <option selected value="name">Name</option>
+                        <option value="year">Year</option>
+                        <option value="unemploymentRate">Unemployment Rate</option>
+                        <option value="netLB">Net Gov Lending and Borrowing</option>
+                        <option value="cpi">Consumer Price Index</option>
+                        <option value="gdp">Gross Domestic Product</option>
+                        <option value="population">Population</option>
+                        <option value="populationDensity">Population Density</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="dir" id="func4Radio1" value="ASC" checked>
+                        <label class="form-check-label" for="func4Radio1">
+                            Sort Ascending
+                        </label>
+                    </div>
+                    <div class="form-check">
+
+                        <input class="form-check-input" type="radio" name="dir" value="DESC" id="func4Radio2">
+                        <label class="form-check-label" for="func4Radio2">
+                            Sort Descending
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <form action="getcoviddata.php" method="post">
+            <div class="row">
+                <label for="func5Input">Search for a country's COVID information</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="country" class="form-control" id="func5Input"
+                        placeholder="Enter a country name" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <form action="TopCountries.php" method="post">
+            <div class="row">
+                <label for="topCountriesCasesDeaths">Output the top n countries by covid cases or deaths</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="month" class="form-control" id="topCountriesCasesDeaths"
+                        placeholder="Month mm (required)" required pattern="^\d{2}$">
+                    <div class="invalid-feedback">
+                        Must match the format mm
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" name="year" class="form-control" id="topCountriesCasesDeaths"
+                        placeholder="Year yyyy (required)" required pattern="^\d{4}$">
+                    <div class="invalid-feedback">
+                        Must match the format yyyy
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="casesDeaths" id="casesTrue" value=0 checked>
+                        <label class="form-check-label" for="casesTrue">Cases</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="casesDeaths" id="deathsTrue" value=1>
+                        <label class="form-check-label" for="deathsTrue">Deaths</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <form action="LowVaxRate.php" method="post">
+            <div class="row">
+                <label for="func7Input">Input a population density, search for the lowest vaccination rate of a country
+                    with less density in 2020</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" step="any" name="n" class="form-control" id="func7Input"
+                        placeholder="Population Density (people per square km)" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </form>
+
+
+        <br>
+
+        <form action="EmploymentRate.php" method="post">
+            <div class="row">
+                <label for="func8Input">Employment rate</label>
+            </div>
+            <div class="row">
+                <small muted> Show all countries that had a higher/lower unemployment rate in 2021 than in 2020</small>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="direction" id="higherTrue" value=1 checked>
+                        <label class="form-check-label" for="higherTrue">Higher</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="direction" id="higherFalse" value=0>
+                        <label class="form-check-label" for="higherFalse">Lower</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </form>
+
+        <br>
+
+        <form action="getcpichange.php" method="post">
+            <div class="row">
+                <label for="func9Input">See Consumer Price Index changes for countries with above this number of cases in 2020</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" name="cases" class="form-control" id="func9Input"
+                        placeholder="Enter COVID cases" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <form action="getgdpaboveandbelow.php" method="post">
+            <div class="row">
+                <label for="func10Input">See the countries with above and below provided GDP in 2021</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" step="any" name="gdp" class="form-control" id="func10Input"
+                        placeholder="Enter GDP (Billions of US Dollars)" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="dir" id="func10Radio1" value="Above" checked>
+                        <label class="form-check-label" for="func10Radio1">
+                            Above
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="dir" value="Below" id="func10Radio2">
+                        <label class="form-check-label" for="func10Radio2">
+                            Below
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <form action="getnetlbrange.php" method="post">
+            <div class="row">
+                <label for="func11Input">Search for a countries within provided net government borrowing/lending range and indicate their
+                    stimulus (2020)</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" step="any" name="low" class="form-control" id="func11Input1"
+                        placeholder="Enter a bottom net lending/borrowing (% GDP)" required>
+                </div>
+                <div class="col">
+                    <input type="number" step="any" name="high" class="form-control" id="func11Input2"
+                        placeholder="Enter a top net lending/borrowing (% GDP)" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <form action="showgdpgrowth.php" method="post">
+            <div class="row">
+                <label for="func12Input">See GDP growth between 2020 and 2021 for specified country</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="cases" class="form-control" id="func12Input"
+                        placeholder="Enter the country name" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

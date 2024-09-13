@@ -1,0 +1,32 @@
+Democratic Republic of the Congo, 2021-03, 28142.0, 743.0
+Equatorial Guinea, 2020-05, 1306.0, 12.0
+Equatorial Guinea, 2020-06, 2001.0, 32.0
+Equatorial Guinea, 2020-07, 4821.0, 83.0
+Equatorial Guinea, 2020-08, 4941.0, 83.0
+Equatorial Guinea, 2020-09, 5030.0, 83.0
+Equatorial Guinea, 2020-10, 5088.0, 83.0
+Equatorial Guinea, 2020-11, 5153.0, 85.0
+Russia, 2020-05, 405843.0, 4693.0
+Russia, 2020-06, 646929.0, 9306.0
+Saudi Arabia, 2020-05, 85261.0, 503.0
+Saudi Arabia, 2020-06, 190823.0, 1649.0
+Saudi Arabia, 2020-07, 275905.0, 2866.0
+Saudi Arabia, 2020-08, 315772.0, 3897.0
+Saudi Arabia, 2020-09, 334605.0, 4768.0
+Saudi Arabia, 2020-10, 347282.0, 5402.0
+Saudi Arabia, 2020-11, 357360.0, 5896.0
+Saudi Arabia, 2020-12, 362741.0, 6223.0
+Saudi Arabia, 2021-01, 368074.0, 6375.0
+Saudi Arabia, 2021-02, 377383.0, 6494.0
+Saudi Arabia, 2021-03, 390007.0, 6669.0
+Bosnia and Herzegovina, 2020-05, 2510.0, 153.0
+Colombia, 2020-05, 29383.0, 939.0
+Colombia, 2020-06, 97846.0, 3334.0
+Colombia, 2020-07, 295508.0, 10105.0
+Morocco, 2020-05, 7807.0, 205.0
+Nicaragua, 2020-05, 759.0, 35.0
+Nicaragua, 2020-06, 2519.0, 83.0
+Syria, 2020-05, 122.0, 5.0
+Japan, 2020-05, 16751.0, 898.0
+Japan, 2020-06, 18615.0, 972.0
+Japan, 2020-07, 36234.0, 1008.0

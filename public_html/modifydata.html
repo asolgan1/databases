@@ -1,0 +1,401 @@
+<!-- 
+    Zachary Zhou: zzhou43
+    Jamie Huang: jhuan131
+    Alexey Solganik: asolgan1
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Set up scripts for Bootstrap CDN  -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+    <!-- Begin code for functionalities -->
+    <ul class="nav nav-tabs">
+        <a class="nav-link" href="zzhou43_jhuan131_asolgan1.html">Query Data</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Modify Data</a>
+        </li>
+    </ul>
+    <div class="jumbotron">
+
+        <form class="needs-validation" novalidate action="upsertcountrytuple.php" method="post">
+            <div class="row">
+                <label>Insert/Update a Country's Info</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="name" class="form-control" id="upsertCountryName"
+                        placeholder="Name (required)" required>
+                    <div class="invalid-feedback">
+                        Cannot be empty
+                    </div>
+                    <small id="upsertCountryNameHelp" class="form-text text-muted">If name matches an existing country
+                        in the database, its contents will be updated instead of inserting a new country</small>
+                </div>
+                <div class="col">
+                    <input type="text" name="migrantStock" class="form-control" id="upsertCountryMigrantStock"
+                        placeholder="Migrant Stock (% of Total Population)" pattern="^[0-9]*(\.){0,1}[0-9]*$">
+                    <div class="invalid-feedback">
+                        Must be a positive numerical
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" name="stimulus" class="form-control" id="upsertCountryStimulus"
+                        placeholder="Stimulus (% of 2021 GDP)" pattern="^[0-9]*(\.){0,1}[0-9]*$">
+                    <div class="invalid-feedback">
+                        Must be a positive numerical
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <label>Is the country a member of the OECD?</label>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inOECD" id="inOECDTrue" value=1>
+                    <label class="form-check-label" for="inOECDTrue">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inOECD" id="inOECDFalse" value=0 checked>
+                    <label class="form-check-label" for="inOECDFalse">No</label>
+                </div>
+            </div>
+            <div class="row">
+                <label>Does the country have public healthcare?</label>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="publicHealthcare" id="publicHealthcareTrue"
+                        value=1>
+                    <label class="form-check-label" for="publicHealthcareTrue">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="publicHealthcare" id="publicHealthcareFalse"
+                        value=0 checked>
+                    <label class="form-check-label" for="publicHealthcareFalse">No</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" name="dailyVacc" class="form-control" id="upsertDailyVacc" min=0
+                        placeholder="Most recent daily vaccinations (people)">
+                </div>
+                <div class="col">
+                    <input type="number" name="totalVacc" class="form-control" id="upsertTotalVacc" min=0
+                        placeholder="Total Vaccinations (people)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <hr class="my-4">
+
+        <form class="needs-validation" novalidate action="deletecountrytuple.php" method="post">
+            <div class="row">
+                <label for="deleteCountryName">Delete a country from database</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="country" class="form-control" id="deleteCountryName"
+                        placeholder="Enter a country name" required>
+                    <div class="invalid-feedback">
+                        Cannot be empty
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+    <div class="jumbotron">
+        <form class="needs-validation" novalidate action="upsertcoviddatatuple.php" method="post">
+            <div class="row">
+                <label>Insert/Update COVID Data</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="name" class="form-control" id="upsertCovidDataName"
+                        placeholder="Country Name (required)" required>
+                    <div class="invalid-feedback">
+                        Cannot be empty
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" name="month" class="form-control" id="upsertCovidDataMonth"
+                        placeholder="Month yyyy-mm (required)" required pattern="^\d{4}-\d{2}$">
+                    <div class="invalid-feedback">
+                        Must match the format yyyy-mm
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" name="deaths" class="form-control" id="upsertCovidDataDeaths" min=0
+                        placeholder="Total deaths up to this month">
+                </div>
+                <div class="col">
+                    <input type="number" name="cases" class="form-control" id="upsertCovidDataCases" min=0
+                        placeholder="Total cases up to this month">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <small id="upsertCovidDataHelp" class="form-text text-muted">If name and month combination
+                        already
+                        exists as a data point,
+                        its contents will be updated instead of inserting a new COVID data point</small>
+                </div>
+            </div>
+        </form>
+
+        <hr class="my-4">
+
+        <form class="needs-validation" novalidate action="deletecoviddatatuple.php" method="post">
+            <div class="row">
+                <label>Delete COVID Data from database</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="name" class="form-control" id="deleteCovidDataName"
+                        placeholder="Country Name (required)" required>
+                    <div class="invalid-feedback">
+                        Cannot be empty
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" name="month" class="form-control" id="deleteCovidDataMonth"
+                        placeholder="Month yyyy-mm (required)" required pattern="^\d{4}-\d{2}$">
+                    <div class="invalid-feedback">
+                        Must match the format yyyy-mm
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="jumbotron">
+        <form class="needs-validation" novalidate action="upsertannualcountrydatatuple.php" method="post">
+            <div class="row">
+                <label>Insert/Update Annual Country Data</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="name" class="form-control" id="upsertAnnualCountryDataName"
+                        placeholder="Country Name (required)" required>
+                    <div class="invalid-feedback">
+                        Cannot be empty
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" name="year" class="form-control" id="upsertAnnualCountryDataYear"
+                        placeholder="Year yyyy (required)" required pattern="^\d{4}$">
+                    <div class="invalid-feedback">
+                        Must match the format yyyy
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" name="population" class="form-control" id="upsertAnnualCountryDataPop" min=0
+                        placeholder="Population in Thousands of People">
+                </div>
+                <div class="col">
+                    <input type="text" name="populationDensity" class="form-control" id="upsertAnnualCountryDataPopD"
+                        pattern="^\d*\.{0,1}\d*$"
+                        placeholder="Population Density in Thousands of People per Square kilometers">
+                </div>
+                <div class="invalid-feedback">
+                    Must be a positive numerical
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <small id="upsertAnnualCountryDataHelp" class="form-text text-muted">If name and year combination
+                        already
+                        exists as a data point,
+                        its contents will be updated instead of inserting a new annual country data point</small>
+                </div>
+            </div>
+        </form>
+
+        <hr class="my-4">
+
+        <form class="needs-validation" novalidate action="deleteannualcountrydatatuple.php" method="post">
+            <div class="row">
+                <label>Delete Annual Country Data from database</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="name" class="form-control" id="deleteAnnualCountryDataName"
+                        placeholder="Country Name (required)" required>
+                    <div class="invalid-feedback">
+                        Cannot be empty
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" name="year" class="form-control" id="deleteAnnualCountryDataYear"
+                        placeholder="Year yyyy (required)" required pattern="^\d{4}$">
+                    <div class="invalid-feedback">
+                        Must match the format yyyy
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="jumbotron">
+        <form class="needs-validation" novalidate action="upsertannualecondatatuple.php" method="post">
+            <div class="row">
+                <label>Insert/Update Annual Econ Data</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="name" class="form-control" id="upsertAnnualEconDataName"
+                        placeholder="Country Name (required)" required>
+                    <div class="invalid-feedback">
+                        Cannot be empty
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" name="year" class="form-control" id="upsertAnnualEconDataYear"
+                        placeholder="Year yyyy (required)" required pattern="^\d{4}$">
+                    <div class="invalid-feedback">
+                        Must match the format yyyy
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="unemploymentRate" class="form-control" id="upsertAnnualEconDataUR"
+                        pattern="^\d*\.{0,1}\d*$" placeholder="Unemployment Rate in % of labor force">
+                    <div class="invalid-feedback">
+                        Must be a positive numerical
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    Must be a positive numerical
+                </div>
+                <div class="col">
+                    <input type="text" name="netLB" class="form-control" id="upsertAnnualEconDataNLB"
+                        pattern="^-{0,1}\d*\.{0,1}\d*$" placeholder="Net Government Borrowing/Lending in % of GDP">
+                </div>
+                <div class="invalid-feedback">
+                    Must be a numerical
+                </div>
+                <div class="col">
+                    <input type="text" name="cpi" class="form-control" id="upsertAnnualEconDataCPI"
+                        pattern="^-{0,1}\d*\.{0,1}\d*$" placeholder="Consumer Price Index">
+                </div>
+                <div class="invalid-feedback">
+                    Must be a numerical
+                </div>
+                <div class="col">
+                    <input type="text" name="gdp" class="form-control" id="upsertAnnualEconDataGDP"
+                        pattern="^-{0,1}\d*\.{0,1}\d*$" placeholder="Gross Domestic Product in US Dollars">
+                </div>
+                <div class="invalid-feedback">
+                    Must be a numerical
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <small id="upsertAnnualEconDataHelp" class="form-text text-muted">If name and year combination
+                        already
+                        exists as a data point,
+                        its contents will be updated instead of inserting a new annual econ data point</small>
+                </div>
+            </div>
+        </form>
+
+        <hr class="my-4">
+
+        <form class="needs-validation" novalidate action="deleteannualecondatatuple.php" method="post">
+            <div class="row">
+                <label>Delete Annual Econ Data from database</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="name" class="form-control" id="deleteAnnualEconDataName"
+                        placeholder="Country Name (required)" required>
+                    <div class="invalid-feedback">
+                        Cannot be empty
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" name="year" class="form-control" id="deleteAnnualEconDataYear"
+                        placeholder="Year yyyy (required)" required pattern="^\d{4}$">
+                    <div class="invalid-feedback">
+                        Must match the format yyyy
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+</body>
+
+
+<script>
+    // JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+</html>

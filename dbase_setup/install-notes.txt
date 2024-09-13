@@ -1,0 +1,6 @@
+Zachary Zhou: zzhou43
+Jamie Huang: jhuan131
+Alexey Solganik: asolgan1
+
+No special instructions are needed
+Make sure to do chmod o+r *.html since we have two html files

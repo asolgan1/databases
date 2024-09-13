@@ -1,0 +1,16 @@
+Democratic Republic of the Congo,	 1.1,                      0,                        0,                        0
+Equatorial Guinea,                       16.4,                     0,                        0,                        0
+Russia,                      	         8.0,                      4.5,                      0,                        1
+Saudi Arabia,                            38.6,                     2.8,                      0,                        0
+Bosnia and Herzegovina,                  1.1,                      0,                        0,                        0
+Colombia,                                3.7,                      0,                        1,                        1
+Egypt,                                   0.5,                      0,                        0,                        1
+Morocco,                                 0.3,                      0,                        0,                        1
+Nicaragua,                               0.6,                      0,                        0,                        0
+Syria,                    	         5.0,                      0,                        0,                        0
+Japan,                                   2.2,                      54.53,                    1,                        1
+India,                                   0.4,                      3.2,                      0,                        1
+Singapore,                               43.1,                     0,                        0,                        1
+Denmark,                                 12.4,                     0,                        1,                        1
+United Kingdom,                          13.8,                     17.82,                    1,                        1
+Israel,                                  22.6,                     0,                        1,                        1
